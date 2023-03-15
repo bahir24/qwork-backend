@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from "@nestjs/mongoose";
 import { Strength, StrengthDocument } from "../../schemas/strength.schema";
 import { Model } from "mongoose";
+import { Contact } from "../../schemas/contact.schema";
 
 @Injectable()
 export class StrengthsService {
@@ -11,8 +12,7 @@ export class StrengthsService {
   async getAllStrengths(): Promise<Strength[]> {
     return this.strengthModel.find();
   }
-  async sendStrength(data): Promise<Strength> {
-    const strengthData = new this.strengthModel(data);
-    return strengthData.save();
+  async sendStrength(data): Promise<Strength[]> {
+    return this.strengthModel.insertMany(data);
   }
 }

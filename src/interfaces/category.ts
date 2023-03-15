@@ -1,5 +1,5 @@
 export interface ICategory {
-  title: string;
-  desc: string;
-  icon: string;
+  title: string,
+  desc: string,
+  icon: string,
 }

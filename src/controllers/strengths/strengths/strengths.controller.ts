@@ -13,7 +13,7 @@ export class StrengthsController {
   }
 
   @Post()
-  sendStrength(@Body() data: StrengthDto): Promise<Strength> {
+  sendStrengths(@Body() data: StrengthDto[]): Promise<Strength[]> {
     return this.strengthsService.sendStrength(data);
   }
 }

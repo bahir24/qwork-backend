@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post } from "@nestjs/common";
 import { CategoriesService } from "../../../services/categories/categories.service";
 import { Category } from "../../../schemas/category.schema";
 import { CategoryDto } from "../../../dto/CategoryDto";
+import { Service } from "../../../schemas/service.schema";
 
 @Controller('categories')
 export class CategoriesController {
@@ -13,7 +14,7 @@ export class CategoriesController {
   }
 
   @Post()
-  sendCategory(@Body() data: CategoryDto): Promise<Category> {
-    return this.categoriesService.sendCategory(data);
+  sendCategories(@Body() data: CategoryDto[]): Promise<Category[]> {
+    return this.categoriesService.sendCategories(data);
   }
 }
