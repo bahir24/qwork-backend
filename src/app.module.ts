@@ -10,7 +10,14 @@ import { ServicesModule } from './controllers/services/services.module';
 import { PhotosModule } from './controllers/photos/photos.module';
 
 @Module({
-  imports: [StrengthsModule, CategoriesModule, EmployeesModule, ContactsModule, ServicesModule, PhotosModule, MongooseModule.forRoot('mongodb://localhost/avalon')],
+  imports: [
+    StrengthsModule,
+    CategoriesModule,
+    EmployeesModule,
+    ContactsModule,
+    ServicesModule,
+    PhotosModule,
+    MongooseModule.forRoot('mongodb://qworkLocalUser:qworkLocalPass@localhost/qwork')],
   controllers: [AppController],
   providers: [AppService],
 })
