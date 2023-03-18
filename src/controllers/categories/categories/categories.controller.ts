@@ -10,6 +10,7 @@ export class CategoriesController {
 
   @Get()
   getAllCategories(): Promise<Category[]> {
+    console.log('get categories');
     return this.categoriesService.getAllCategories();
   }
 
