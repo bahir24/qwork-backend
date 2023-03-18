@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { ServicesService } from "../../../services/services/services.service";
 import { Service } from "../../../schemas/service.schema";
 import { ServiceDto } from "../../../dto/ServiceDto";
@@ -10,6 +10,11 @@ export class ServicesController {
   @Get()
   getAllServices(): Promise<Service[]> {
     return this.servicesService.getAllServices();
+  }
+
+  @Get("service/:service_id")
+  getServiceById(@Param("service_id") serviceId): Promise<Service> {
+    return this.servicesService.getServiceById(serviceId);
   }
 
   @Get('grouped')

@@ -23,4 +23,11 @@ export class ServicesService {
   async getRelatedServices(): Promise<Service[]> {
     return this.serviceModel.aggregate([{'$sample': {'size': 3 }}]);
   }
+
+  async getServiceById(serviceId: string): Promise<Service> {
+    return this.serviceModel.findById(serviceId);
+  }
+
+
+  
 }

@@ -11,8 +11,10 @@ export class ContactsService {
   async getAllContacts(): Promise<Contact[]> {
     return this.contactModel.find().populate('city');
   }
-  async getContactByCityId(cityId): Promise<Contact> {    
-    return this.contactModel.findOne({'city': cityId}).populate('city');
+  async getContactByCityId(cityId): Promise<Contact> {
+    const temp  = this.contactModel.findOne({'city': cityId}).populate('city');
+    console.log('contact by city id', temp);
+    return temp;
   }
   async sendContacts(contacts: Promise<void>[]) {
     return this.contactModel.insertMany(contacts);
