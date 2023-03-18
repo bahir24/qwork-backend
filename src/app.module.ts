@@ -17,7 +17,7 @@ import { PhotosModule } from './controllers/photos/photos.module';
     ContactsModule,
     ServicesModule,
     PhotosModule,
-    MongooseModule.forRoot('mongodb://qworkLocalUser:qworkLocalPass@localhost/qwork')],
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/test')],
   controllers: [AppController],
   providers: [AppService],
 })
