@@ -7,7 +7,6 @@ import { Contact } from "../../schemas/contact.schema";
 @Injectable()
 export class StrengthsService {
   constructor(@InjectModel(Strength.name) private strengthModel: Model<StrengthDocument>) {
-    console.log('testService run');
   }
   async getAllStrengths(): Promise<Strength[]> {
     return this.strengthModel.find();

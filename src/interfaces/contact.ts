@@ -7,9 +7,10 @@ export interface IContact {
 }
 
 export interface ICity {
-  title: string
+  title: string;
 }
-export interface IGeo{
+
+export interface IGeo {
   lat: string,
   lon: string
 }

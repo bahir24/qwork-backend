@@ -1,4 +1,4 @@
-import mongoose, { HydratedDocument } from "mongoose";
+import mongoose, { HydratedDocument, ObjectId, Schema as STypes } from "mongoose";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { IContact} from "../interfaces/contact";
 import { City } from "./city.schema";
@@ -13,11 +13,11 @@ export class Contact implements IContact {
   @Prop()
   address: string;
   @Prop()
-  city: City;
-  @Prop()
   phone: string;
   @Prop()
   geo: Geo;
+  @Prop({type: mongoose.Schema.Types.ObjectId, ref:'City'})
+  city: City;
 }
 
 export const ContactSchema = SchemaFactory.createForClass(Contact);

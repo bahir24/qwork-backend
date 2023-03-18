@@ -1,10 +1,11 @@
-import { Contact } from "../schemas/contact.schema";
 import { ICity, IGeo } from "../interfaces/contact";
+import { CityDto } from "./CityDto";
+import { City } from "../schemas/city.schema";
 
-export class ContactDto implements Contact {
-  email: string;
+export class ContactDto {
   address: string;
-  city: ICity;
-  phone: string;
+  email: string;
   geo: IGeo;
+  phone: string;
+  city: City;
 }

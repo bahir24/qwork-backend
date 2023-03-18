@@ -7,7 +7,6 @@ import { Service } from "../../schemas/service.schema";
 @Injectable()
 export class CategoriesService {
   constructor(@InjectModel(Category.name) private categoryModel: Model<CategoryDocument>) {
-    console.log('testService run');
   }
   async getAllCategories(): Promise<Category[]> {
     return this.categoryModel.find();
