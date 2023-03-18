@@ -9,7 +9,7 @@ export class ContactsService {
   constructor(@InjectModel(Contact.name) private contactModel: Model<ContactDocument>)
   {}
   async getAllContacts(): Promise<Contact[]> {
-    return this.contactModel.find();
+    return this.contactModel.find().populate('city');
   }
   async getContactByCityId(cityId): Promise<Contact> {    
     return this.contactModel.findOne({'city': cityId}).populate('city');
