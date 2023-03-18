@@ -22,7 +22,6 @@ export class ContactsController {
 
   @Get("city/:city_id")
   getContactByCityId(@Param("city_id") cityId): Promise<Contact> {
-    console.log('get categories');
     return this.contactsService.getContactByCityId(cityId);
   }
 

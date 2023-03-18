@@ -11,8 +11,8 @@ export class ContactsService {
   async getAllContacts(): Promise<Contact[]> {
     return this.contactModel.find();
   }
-  async getContactByCityId(city_id): Promise<Contact> {    
-    return this.contactModel.findOne({'city': city_id}).populate('city');
+  async getContactByCityId(cityId): Promise<Contact> {    
+    return this.contactModel.findOne({'city': cityId}).populate('city');
   }
   async sendContacts(contacts: Promise<void>[]) {
     return this.contactModel.insertMany(contacts);

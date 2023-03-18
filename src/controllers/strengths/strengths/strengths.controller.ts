@@ -10,7 +10,7 @@ export class StrengthsController {
   @Get()
   getAllStrengths(): Promise<Strength[]> {
     let strrr = this.strengthsService.getAllStrengths(); 
-    console.log('get Strengths', strrr);
+    console.log('get Strengths', strrr.then(res => console.log(res)));
     return strrr;
   }
 
