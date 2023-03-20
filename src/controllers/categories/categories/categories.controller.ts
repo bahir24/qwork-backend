@@ -17,13 +17,12 @@ export class CategoriesController {
 
   @Get()
   getAllCategories(): Promise<Category[]> {
-    console.log("get categories");
     return this.categoriesService.getAllCategories();
   }
 
   @Get("services")
-  getCategoriesWithServices(): Promise<Category[]> {
-    return this.categoriesService.getGroupedByCategoriesServices();
+  getGroupedCategories(): Promise<Category[]> {
+    return this.categoriesService.getCategoriesWithServices();
   }
 
   @Post()

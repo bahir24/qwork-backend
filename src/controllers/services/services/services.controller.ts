@@ -13,17 +13,20 @@ export class ServicesController {
   getAllServices(): Promise<Service[]> {
     return this.servicesService.getAllServices();
   }
-
-
+  
   @Get("service/:service_id")
   getContactByCityId(@Param("service_id") serviceId): Promise<Service> {
-    // console.log('get service');
     return this.servicesService.getServiceById(serviceId);
   }
+  
+  @Get("service/category/:service_id")
+  getServiceWithCategoryById(@Param("service_id") serviceId): Promise<Service> {
+    return this.servicesService.getServiceWithCategoryById(serviceId);
+  }
 
-  @Get('grouped')
+  @Get('categories')
   getGroupedServices(): Promise<Service[]> {
-    return this.servicesService.getGroupedServices();
+    return this.servicesService.getServicesWithCategories();
   }
 
   @Get('related')

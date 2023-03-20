@@ -25,7 +25,7 @@ export class CategoriesService {
     return this.categoryModel.create(category).then();
   }
 
-  async getGroupedByCategoriesServices(): Promise<Category[]> {
+  async getCategoriesWithServices(): Promise<Category[]> {
     return this.categoryModel.find().populate("services");
   }
 

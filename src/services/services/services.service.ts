@@ -14,7 +14,7 @@ export class ServicesService {
     return this.serviceModel.find();
   }
 
-  async getGroupedServices(): Promise<Service[]> {
+  async getServicesWithCategories(): Promise<Service[]> {
     return this.serviceModel.find().populate('category');
   }
   
@@ -27,11 +27,13 @@ export class ServicesService {
   }
 
   async getServiceById(serviceId): Promise<Service> {
-    // this.serviceModel.findById(serviceId).exec();
-    // console.log(this.serviceModel.findById(serviceId).exec());
-    
     return this.serviceModel.findById(serviceId).exec();
   }
+
+  async getServiceWithCategoryById(serviceId): Promise<Service> {
+    return this.serviceModel.findById(serviceId).populate('category');
+  }
+  
   async deleteAllServices() {
     return this.serviceModel.deleteMany();
   }
