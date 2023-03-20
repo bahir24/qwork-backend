@@ -16,7 +16,6 @@ export class ContactsController {
 
   @Get()
   getAllContacts(): Promise<Contact[]> {
-    console.log('get categories');
     return this.contactsService.getAllContacts();
   }
 
@@ -31,14 +30,15 @@ export class ContactsController {
   }
 
   @Post()
-  sendContacts(@Body() data: ContactDto[]): Promise<Contact>[] {
-    return data.map(item =>
-      this.citiesService.sendCity(item.city).then(city =>
+  sendContacts(@Body() contactsWithCities: ContactDto[]): Promise<Contact>[] {
+    return contactsWithCities.map((contactWithCity: ContactDto) =>
+      this.citiesService.sendCity(contactWithCity.city)
+        .then((city: City) =>
         this.contactsService.sendContact({
-          email: item.email,
-          address: item.address,
-          phone: item.phone,
-          geo: item.geo,
+          email: contactWithCity.email,
+          address: contactWithCity.address,
+          phone: contactWithCity.phone,
+          geo: contactWithCity.geo,
           city: city
         })
       )

@@ -1,11 +1,14 @@
 import { ICategory } from "../interfaces/category";
-import { HydratedDocument } from "mongoose";
+import { HydratedDocument, Schema as STypes } from "mongoose";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type CategoryDocument = HydratedDocument<Category>;
 
 @Schema()
 export class Category implements ICategory {
+  @Prop({ref:'Service'})
+  services!: STypes.Types.ObjectId[];
+  
   @Prop()
   title: string;
 

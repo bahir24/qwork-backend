@@ -9,9 +9,9 @@ export class StrengthsController {
 
   @Get()
   getAllStrengths(): Promise<Strength[]> {
-    let strrr = this.strengthsService.getAllStrengths(); 
-    console.log('get Strengths', strrr.then(res => console.log(res)));
-    return strrr;
+    // let strrr = 
+    // console.log('get Strengths', strrr.then(res => console.log(res)));
+    return this.strengthsService.getAllStrengths();
   }
 
   @Post()

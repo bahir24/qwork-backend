@@ -2,6 +2,8 @@ import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { ServicesService } from "../../../services/services/services.service";
 import { Service } from "../../../schemas/service.schema";
 import { ServiceDto } from "../../../dto/ServiceDto";
+import { Contact } from "../../../schemas/contact.schema";
+import { InsertManyResult } from "mongodb";
 
 @Controller('services')
 export class ServicesController {
@@ -12,8 +14,10 @@ export class ServicesController {
     return this.servicesService.getAllServices();
   }
 
+
   @Get("service/:service_id")
-  getServiceById(@Param("service_id") serviceId): Promise<Service> {
+  getContactByCityId(@Param("service_id") serviceId): Promise<Service> {
+    // console.log('get service');
     return this.servicesService.getServiceById(serviceId);
   }
 
@@ -28,7 +32,7 @@ export class ServicesController {
   }
   
   @Post()
-  sendServices(@Body() data: ServiceDto[]): Promise<Service[]> {
-    return this.servicesService.sendService(data);
+  sendServices(@Body() data: ServiceDto[]): Promise<InsertManyResult<Service>> {
+    return this.servicesService.sendServices(data);
   }
 }

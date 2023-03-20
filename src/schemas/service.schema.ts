@@ -1,13 +1,15 @@
 import { IService } from "../interfaces/service";
 import { Category } from "./category.schema";
 import { ServiceData } from "./servicedata.schema";
-import { HydratedDocument, ObjectId, Schema as STypes } from "mongoose";
+import { HydratedDocument, Schema as STypes } from "mongoose";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 export type ServiceDocument = HydratedDocument<Service>;
 
 @Schema()
 export class Service implements IService {
+  @Prop()
+  _id?: STypes.Types.ObjectId;
   @Prop()
   title: string;
   @Prop()
