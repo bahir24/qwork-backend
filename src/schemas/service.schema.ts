@@ -14,7 +14,7 @@ export class Service implements IService {
   title: string;
   @Prop()
   subTitle: string;
-  @Prop({ref:'Category'})
+  @Prop({ ref: "Category" })
   category!: STypes.Types.ObjectId;
   @Prop()
   data: ServiceData[];
