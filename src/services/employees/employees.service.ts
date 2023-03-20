@@ -18,4 +18,7 @@ export class EmployeesService {
   async sendEmployees(data): Promise<Employee[]> {
     return this.employeeModel.insertMany(data);
   }
+  async deleteAllEmployees() {
+    return this.employeeModel.deleteMany();
+  }
 }

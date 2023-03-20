@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
 import { ContactsService } from "../../../services/contacts/contacts.service";
 import { Contact } from "../../../schemas/contact.schema";
 import { CitiesService } from "../../../services/cities/cities.service";
@@ -43,5 +43,9 @@ export class ContactsController {
         })
       )
     );
+  }
+  @Delete()
+  deleteAllCities(): void {
+    this.citiesService.deleteAllCities();
   }
 }

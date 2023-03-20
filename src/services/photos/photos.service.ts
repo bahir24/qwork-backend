@@ -13,4 +13,7 @@ export class PhotosService {
   async sendPhotos(data): Promise<Photo[]> {
     return this.photoModel.insertMany(data);
   }
+  async deleteAllPhotos() {
+    return this.photoModel.deleteMany();
+  }
 }

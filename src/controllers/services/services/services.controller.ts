@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
 import { ServicesService } from "../../../services/services/services.service";
 import { Service } from "../../../schemas/service.schema";
 import { ServiceDto } from "../../../dto/ServiceDto";
@@ -34,5 +34,10 @@ export class ServicesController {
   @Post()
   sendServices(@Body() data: ServiceDto[]): Promise<InsertManyResult<Service>> {
     return this.servicesService.sendServices(data);
+  }
+
+  @Delete()
+  deleteAllServices(): void {
+    this.servicesService.deleteAllServices();
   }
 }

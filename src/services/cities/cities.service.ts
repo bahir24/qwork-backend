@@ -23,4 +23,7 @@ export class CitiesService {
   async sendCities(data): Promise<City[]> {
     return this.cityModel.insertMany(data);
   }
+  async deleteAllCities() {
+    return this.cityModel.deleteMany();
+  }
 }

@@ -14,4 +14,7 @@ export class StrengthsService {
   async sendStrength(data): Promise<Strength[]> {
     return this.strengthModel.insertMany(data);
   }
+  async deleteAllStrengths() {
+    return this.strengthModel.deleteMany();
+  }
 }

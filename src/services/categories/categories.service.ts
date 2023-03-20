@@ -29,6 +29,9 @@ export class CategoriesService {
     return this.categoryModel.find().populate("services");
   }
 
+  async deleteAllCategories() {
+    return this.categoryModel.deleteMany();
+  }
 }
 
 // this.categoryModel.find().exec((err, cat) => {

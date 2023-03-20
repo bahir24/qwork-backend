@@ -22,4 +22,7 @@ export class ContactsService {
   async sendContact(contact: AddressDto):Promise<Contact> {
     return this.contactModel.create(contact).then(contact => contact.populate('city'));
   }
+  async deleteAllContacts() {
+    return this.contactModel.deleteMany();
+  }
 }

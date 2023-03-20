@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Post } from "@nestjs/common";
 import { StrengthsService } from "../../../services/strengths/strengths.service";
 import { Strength } from "../../../schemas/strength.schema";
 import { StrengthDto } from "../../../dto/StrengthDto";
@@ -18,4 +18,10 @@ export class StrengthsController {
   sendStrengths(@Body() data: StrengthDto[]): Promise<Strength[]> {
     return this.strengthsService.sendStrength(data);
   }
+
+  @Delete()
+  deleteAllStrengths(): void {
+    this.strengthsService.deleteAllStrengths();
+  }
+  
 }

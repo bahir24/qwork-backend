@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Post } from "@nestjs/common";
 import { CategoriesService } from "../../../services/categories/categories.service";
 import { Category } from "../../../schemas/category.schema";
 import { CategoryWithServicesDto } from "../../../dto/CategoryDto";
@@ -39,6 +39,11 @@ export class CategoriesController {
           });
         });
     }));
+  }
+
+  @Delete()
+  deleteAllCategories(): void {
+    this.categoriesService.deleteAllCategories();
   }
 }
 

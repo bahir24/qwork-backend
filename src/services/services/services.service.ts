@@ -32,6 +32,9 @@ export class ServicesService {
     
     return this.serviceModel.findById(serviceId).exec();
   }
+  async deleteAllServices() {
+    return this.serviceModel.deleteMany();
+  }
 
 
   
