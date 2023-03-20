@@ -31,12 +31,15 @@ export class CategoriesController {
     return Promise.all(categories.map((category: CategoryWithServicesDto): Promise<Category> => {
       return this.servicesService.sendServices(category.services)
         .then((servicesSaveResult: InsertManyResult<Service>): Promise<Category> => {
-          return this.categoriesService.sendCategory({
+          const servicesIds = Object.values(servicesSaveResult.insertedIds).map((id: ObjectId) => id.toString());
+          const categorySaved = this.categoriesService.sendCategory({
             title: category.title,
             icon: category.icon,
             desc: category.desc,
-            services: Object.values(servicesSaveResult.insertedIds).map((id: ObjectId) => id.toString())
+            services: servicesIds
           });
+          categorySaved.then(category => this.servicesService.attachCategoryToServices(category));
+          return categorySaved;
         });
     }));
   }

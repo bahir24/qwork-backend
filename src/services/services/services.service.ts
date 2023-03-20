@@ -36,6 +36,14 @@ export class ServicesService {
     return this.serviceModel.deleteMany();
   }
 
+  async attachCategoryToServices(category){
+    this.serviceModel.updateMany(
+      {_id: {$in: category.services}}, 
+      { $set: {category: category._id}},
+      {multi: true}, (err, res) => console.log(res) 
+    );
+  }
+
 
   
 }
